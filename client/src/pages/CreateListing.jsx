@@ -8,6 +8,7 @@ import React, { useState } from "react";
 import { app } from "../firebase";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { getUser } from "../helpers/selectors";
 
 export default function CreateListing() {
   const [files, setFiles] = useState({});
@@ -29,7 +30,7 @@ export default function CreateListing() {
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
-  const { currentUser } = useSelector((state) => state.user);
+  const { currentUser } = useSelector(getUser);
   const navigate = useNavigate();
 
   const handleImageSubmit = (e) => {

@@ -19,10 +19,11 @@ import {
   signOutUserSuccess,
 } from "../redux/user/userSlice";
 import { Link } from 'react-router-dom';
+import { getUser } from "../helpers/selectors";
 
 export default function Profile() {
   const fileRef = useRef(null);
-  const { currentUser, loading, error } = useSelector((state) => state.user);
+  const { currentUser, loading, error } = useSelector(getUser);
   const [file, setFile] = useState(undefined);
   const [filePercentage, setFilePercentage] = useState(0);
   const [fileUploadError, setFileUploadError] = useState(false);
